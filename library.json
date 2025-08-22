@@ -1,0 +1,46 @@
+{
+	"name": "actor-SensorChangeTrigger",
+	"version": "0.5.0",
+	"description": "Triggers an action when a sensor reading changes",
+	"keywords": "Fabrica-IO, actor, trigger",
+	"repository":
+	{
+	  "type": "git",
+	  "url": "https://github.com/FabricaIO/actor-SensorChangeTrigger.git"
+	},
+	"authors":
+	[
+	  {
+		"name": "Sam Groveman",
+		"email": "SamGroveman@outlook.com",
+		"url": "https://github.com/FabricaIO"
+	  }
+	],
+	"dependencies": {
+		"Periodic Action Trigger": "https://github.com/FabricaIO/actor-PeriodicActionTrigger.git",
+		"Parameter Trigger": "https://github.com/FabricaIO/util-ParameterTrigger.git"
+	  },
+	"license": "GPLv3",
+	"homepage": "https://github.com/FabricaIO",
+	"frameworks": "arduino",
+	"platforms": "*",
+	"fabricaio" : {
+		"name": "SensorChange",
+		"type": 1,
+		"category": "Trigger",
+		"libname": "SensorChangeTrigger",
+		"includes": ["SensorChangeTrigger"],
+		"description": "Triggers an action when a sensor reading changes",
+		"constructor":
+		[
+			[
+				{
+					"name": "Configfile",
+					"type": "String",
+					"description": "The file name to store settings in",
+					"default": "SensorActionTrigger.json"
+				}
+			]
+		]
+	}
+  }
