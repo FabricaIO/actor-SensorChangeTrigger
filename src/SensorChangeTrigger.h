@@ -18,7 +18,7 @@ class SensorChangeTrigger : public PeriodicActionTrigger {
 		/// @brief Trigger configuration
 		struct {
 			/// @brief The value the measurement has to change by to trigger 
-			double value_delta_min = 0;
+			double valueDeltaMin = 0;
 		} sensor_change_config;
 
 		/// @brief Path to configuration file

@@ -35,7 +35,7 @@ bool SensorChangeTrigger::begin() {
 /// @return A JSON string of the config
 String SensorChangeTrigger::getConfig() {
 	JsonDocument doc = addAdditionalConfig();
-	doc["value_delta_min"] = sensor_change_config.value_delta_min;
+	doc["valueDeltaMin"] = sensor_change_config.valueDeltaMin;
 	// Create string to hold output
 	String output;
 	// Serialize to string
@@ -66,7 +66,7 @@ bool SensorChangeTrigger::setConfig(String config, bool save) {
 			std::pair<String, String> chosen {sensor_combined.substring(0, colon), sensor_combined.substring(colon + 1)};
 			sensor_value.parameter_config.Parameters[0] = chosen;
 		}
-		sensor_change_config.value_delta_min = doc["value_delta_min"].as<double>();
+		sensor_change_config.valueDeltaMin = doc["valueDeltaMin"].as<double>();
 		if (save) {
 			return saveConfig(config_path, config);
 		}
@@ -83,7 +83,7 @@ bool SensorChangeTrigger::triggerAction(String payload) {
 		std::map<String, std::map<String, double>> params = sensor_value.getParameterValues();
 		double value = params[sensor_value.parameter_config.Parameters[0].first][sensor_value.parameter_config.Parameters[0].second];
 		double delta = std::abs(old_value - value);
-		if (delta >= sensor_change_config.value_delta_min) {
+		if (delta >= sensor_change_config.valueDeltaMin) {
 			old_value = value;
 			// Parse payload template
 			payload.replace("%SENSOR_VALUE%", String(value));
