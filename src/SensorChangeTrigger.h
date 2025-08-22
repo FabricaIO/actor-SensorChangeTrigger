@@ -15,6 +15,12 @@
 /// @brief Class providing action triggers based on sensor readings
 class SensorChangeTrigger : public PeriodicActionTrigger {
 	protected:
+		/// @brief Trigger configuration
+		struct {
+			/// @brief The value the measurement has to change by to trigger 
+			double value_delta_min = 0;
+		} sensor_change_config;
+
 		/// @brief Path to configuration file
 		String config_path;
 
